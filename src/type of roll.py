@@ -1,4 +1,4 @@
-from helper_functions import *
+from src.helper_functions import *
 
 
 dirpath = '/home/o/Downloads/Galv/capstone1/Mighty-Rolls/data/All Rolls - Wildemount/'

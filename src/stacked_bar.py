@@ -1,4 +1,4 @@
-from helper_functions import *
+from src.helper_functions import *
 import matplotlib.pyplot as plt
 import numpy as np
 

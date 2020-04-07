@@ -1,4 +1,4 @@
-from helper_functions import *
+from src.helper_functions import *
 import matplotlib.pyplot as plt
 
 dirpath = '/home/o/Downloads/Galv/capstone1/Mighty-Rolls/data/All Rolls - Wildemount/'
@@ -49,4 +49,3 @@ print(sum(sizes))
 
 plt.pie(sizes, labels=labels, autopct='%1.1f%%', shadow=True, startangle=90)
 plt.show()
-plt.savefig('damage_pie', )
