@@ -2,7 +2,7 @@ from helper_functions import *
 import matplotlib.pyplot as plt
 
 
-dirpath = '/home/o/Downloads/Galv/capstone1/cr/data/All Rolls - Wildemount/'
+dirpath = '/home/o/Downloads/Galv/capstone1/Mighty-Rolls/data/All Rolls - Wildemount/'
 
 # clean 'Natural Value' feature
 df = html_to_df(dirpath).dropna(subset=['Episode'])
@@ -24,3 +24,4 @@ df = remove_rows(df, col, remove_list)
 x = df[col].astype('int32')
 plt.hist(x, bins=20, density=True)
 plt.show()
+plt.savefig('nat_value')

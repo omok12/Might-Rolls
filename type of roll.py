@@ -1,7 +1,7 @@
 from helper_functions import *
 
 
-dirpath = '/home/o/Downloads/Galv/capstone1/cr/data/All Rolls - Wildemount/'
+dirpath = '/home/o/Downloads/Galv/capstone1/Mighty-Rolls/data/All Rolls - Wildemount/'
 df = html_to_df(dirpath).dropna(subset=['Episode'])
 col = 'Type of Roll'
 print_info(df, col)

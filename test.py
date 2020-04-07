@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # create lists to clean data
-dirpath = '/home/o/Downloads/Galv/capstone1/cr/data/All Rolls - Wildemount/'
+dirpath = '/home/o/Downloads/Galv/capstone1/Mighty-Rolls/data/All Rolls - Wildemount/'
 roll_type_out_list = ['Other', 'Damage', 'Fragment', 'Percentage', 'Unknown', 'Hit Dice']
 nat_val_out_list = ['Unknown', 'Nat1', '-2', '24', '21', '0']
 tot_val_out_list = ['Nat'+str(i) for i in range(21)]
