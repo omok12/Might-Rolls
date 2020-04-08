@@ -1,6 +1,6 @@
 from src.helper_functions import *
 
-def plot_this_df():
+def use_this_df():
     # create df of level in each episode
     ep_formatted = pd.read_csv('/home/o/Downloads/Galv/capstone1/Mighty-Rolls/data/level_by_ep.csv', names=['episode_int','Episode','Level'])
     df_ep_level = ep_formatted.filter(['episode_int', 'Level']).set_index('episode_int')

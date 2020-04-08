@@ -1,9 +1,9 @@
-from src.plot_this import plot_this_df
+from src.use_this import use_this_df
 import seaborn as sns
 import matplotlib.pyplot as plt
 import numpy as np
 
-df = plot_this_df()
+df = use_this_df()
 
 
 # df_character = df[df['Character'] == 'Beau']
@@ -19,20 +19,28 @@ def plot_distplot(df, col, col_wrap, plot_col):
     g.map(sns.distplot, plot_col)
 
 
-plot_distplot(df, 'Character', 4, 'Total Value')
-plt.show()
+# plot_distplot(df, 'Character', 4, 'Total Value')
+# plt.show()
+# sns.boxplot(df['Character'], df['Total Value'])
+# plt.show()
 
 # plot_distplot(df, 'Character', 4, 'modifier')
 # plt.show()
-
-# plot_distplot(df, 'Level', 6, 'Total Value')
+# sns.boxplot(df['Character'], df['modifier'])
 # plt.show()
 
-# plot_distplot(df, 'Level', 6, 'modifier')
+# plot_distplot(df, 'Level', 5, 'Total Value')
+# plt.show()
+# sns.boxplot(df['Level'], df['Total Value'])
+# plt.show()
+#
+# plot_distplot(df, 'Level', 5, 'modifier')
+# plt.show()
+# sns.boxplot(df['Level'], df['modifier'])
 # plt.show()
 
 # sns.pairplot(df, hue="Character")
 # plt.show()
 
-# sns.boxplot(df['Character'], df['Total Value'])
-# plt.show()
+sns.distplot(df['modifier'])
+plt.show()
