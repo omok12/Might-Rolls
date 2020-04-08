@@ -5,13 +5,13 @@ import pandas as pd
 
 df = use_this_df()
 
-# h0-the modifiers at level 'sample1' are equally likely to be higher than modifiers at level 'sample2' as the other way around
+# h0-the Modifiers at level 'sample1' are equally likely to be higher than Modifiers at level 'sample2' as the other way around
 
 
 def mann_whitney_test_lvl(level=2):
     samples = []
     for i in range(2, 12):
-        samples.append(df[df['Level'] == i]['modifier'])
+        samples.append(df[df['Level'] == i]['Modifier'])
 
     p_vals = []
     for i in range(0, 10):
@@ -28,7 +28,7 @@ def mann_whitney_test_lvl(level=2):
 def mann_whitney_test_car(char, charlist):
     samples = []
     for i in char_list:
-        samples.append(df[df['Character'] == i]['modifier'])
+        samples.append(df[df['Character'] == i]['Modifier'])
 
     p_vals = []
     for i in range(0, len(char_list)):

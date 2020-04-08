@@ -18,29 +18,30 @@ def plot_distplot(df, col, col_wrap, plot_col):
     g = sns.FacetGrid(df, col=col, col_wrap=col_wrap)
     g.map(sns.distplot, plot_col)
 
-
+sns.set_style('ticks')
 # plot_distplot(df, 'Character', 4, 'Total Value')
 # plt.show()
 # sns.boxplot(df['Character'], df['Total Value'])
 # plt.show()
 
-# plot_distplot(df, 'Character', 4, 'modifier')
+# plot_distplot(df, 'Character', 4, 'Modifier')
 # plt.show()
-# sns.boxplot(df['Character'], df['modifier'])
+# sns.boxplot(df['Character'], df['Modifier'])
 # plt.show()
 
 # plot_distplot(df, 'Level', 5, 'Total Value')
 # plt.show()
 # sns.boxplot(df['Level'], df['Total Value'])
 # plt.show()
-#
-# plot_distplot(df, 'Level', 5, 'modifier')
-# plt.show()
-# sns.boxplot(df['Level'], df['modifier'])
+
+
+plot_distplot(df, 'Level', 5, 'Modifier')
+plt.show()
+# sns.boxplot(df['Level'], df['Modifier'])
 # plt.show()
 
 # sns.pairplot(df, hue="Character")
 # plt.show()
 
-sns.distplot(df['modifier'])
-plt.show()
+# sns.distplot(df['Modifier'])
+# plt.show()

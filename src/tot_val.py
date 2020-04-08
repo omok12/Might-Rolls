@@ -1,5 +1,6 @@
 from src.helper_functions import *
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 
 dirpath = '/home/o/Downloads/Galv/capstone1/Mighty-Rolls/data/All Rolls - Wildemount/'
@@ -26,6 +27,6 @@ print_info(df, col)
 
 # plot histogram
 x = df[col].astype('int32')
-plt.hist(x, bins=20, density=True)
+sns.distplot(x, bins=20)
 plt.show()
 

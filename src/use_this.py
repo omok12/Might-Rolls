@@ -34,7 +34,7 @@ def use_this_df():
     df_filtered['Natural Value'] = df_filtered['Natural Value'].astype('int32')
 
     # create modifier column = total value - natural value
-    df_filtered['modifier'] = df_filtered['Total Value'] - df_filtered['Natural Value']
+    df_filtered['Modifier'] = df_filtered['Total Value'] - df_filtered['Natural Value']
 
     # merge characters
     replace_dict = {

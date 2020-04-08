@@ -5,11 +5,12 @@ import numpy as np
 
 df = use_this_df()
 
+sns.set_style('ticks')
+sns.color_palette('dark')
+ax = sns.boxplot(df['Level'], df['Modifier'])
 
-ax = sns.boxplot(df['Level'], df['modifier'])
-
-means = df.groupby('Level')['modifier'].mean().values
-nobs = df.groupby('Level')['modifier'].agg(['count'])
+means = df.groupby('Level')['Modifier'].mean().values
+nobs = df.groupby('Level')['Modifier'].agg(['count'])
 nobs = ["n: " + str(i) for s in nobs.values for i in s]
 
 pos = range(len(nobs))
