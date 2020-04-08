@@ -8,7 +8,7 @@ df = use_this_df()
 # h0-the modifiers at level 'sample1' are equally likely to be higher than modifiers at level 'sample2' as the other way around
 
 
-def mann_whitney_test(level=2):
+def mann_whitney_test_lvl(level=2):
     samples = []
     for i in range(2, 12):
         samples.append(df[df['Level'] == i]['modifier'])
@@ -20,20 +20,26 @@ def mann_whitney_test(level=2):
     return p_vals
 
 
-# samples = []
-# for i in range(2, 12):
-#     samples.append(df[df['Level'] == i]['modifier'])
-# for i in range(0, 9):
-#     res = stats.mannwhitneyu(samples[i], samples[i + 1], alternative='greater').pvalue
-#     print(f"p-value for level{i + 2} < level{i + 3}: {res}")
+# data = [mann_whitney_test_lvl(x) for x in range(2,12)]
+# df_pval = pd.DataFrame(data, index=range(2,12), columns=range(2,12))
+# print(df_pval)
 
 
-data = [mann_whitney_test(x) for x in range(2,12)]
-df_pval = pd.DataFrame(data, index=range(2,12), columns=range(2,12))
-print(df_pval)
-print(mann_whitney_test(2))
+def mann_whitney_test_car(char, charlist):
+    samples = []
+    for i in char_list:
+        samples.append(df[df['Character'] == i]['modifier'])
+
+    p_vals = []
+    for i in range(0, len(char_list)):
+        res = stats.mannwhitneyu(samples[char_list.index(char)], samples[i], alternative='greater').pvalue.round(3)
+        p_vals.append(res)
+    return p_vals
 
 
-
+char_list = ['Beau', 'Cad./Molly', 'Caleb', 'Fjord', 'Jester', 'Nott/Veth', 'Yasha', 'Other']
+data = [mann_whitney_test_car(x, char_list) for x in char_list]
+df_pval_char = pd.DataFrame(data, index=char_list, columns=char_list)
+print(df_pval_char)
 
 
