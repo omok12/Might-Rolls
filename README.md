@@ -218,6 +218,7 @@ After cleaning, there are 6591 rows, and 6 important columns;
 
     ```
     from src.use_this import use_this_df
+    from src.facetgrid_distplots import plot_distplots
     import seaborn as sns
     import matplotlib.pyplot as plt
     
@@ -250,7 +251,7 @@ This yields: p-value = 0
 
 ## Further Testing
 
-![Mann-Whitney](img/Mann-Whitney U test table.png)
+![Mann-Whitney](img/Mann_Whitney_U_test_table.png)
 
 Table values are the p-values from the Mann-Whitney test i.e P(Y>X) + .5*P(Y=X)
 
