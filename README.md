@@ -44,13 +44,12 @@ After cleaning, there are 6591 rows, and 6 important columns;
         df = df[~df[col].isin(lst)]
         return df[df[col].notnull()]
     
-    def use_this_df():
+    def use_this_df(dirpath):
         # create df of level in each episode
-        ep_formatted = pd.read_csv('/home/o/Downloads/Galv/capstone1/Mighty-Rolls/data/level_by_ep.csv', names=['episode_int','Episode','Level'])
+        ep_formatted = pd.read_csv('./data/level_by_ep.csv', names=['episode_int','Episode','Level'])
         df_ep_level = ep_formatted.filter(['episode_int', 'Level']).set_index('episode_int')
     
         # fix episode names
-        dirpath = '/home/o/Downloads/Galv/capstone1/Mighty-Rolls/data/All Rolls - Wildemount/'
         df = html_to_df(dirpath).dropna(subset=['Episode'])
         df['episode_int'] = df['Episode'].apply(lambda x: x[-2:]).astype('int64')
     
