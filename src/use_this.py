@@ -10,7 +10,7 @@ def use_this_df():
     df = html_to_df(dirpath).dropna(subset=['Episode'])
     df['episode_int'] = df['Episode'].apply(lambda x: x[-2:]).astype('int64')
 
-    # join df_epi_level
+    # join df_ep_level
     df = df.join(df_ep_level, on='episode_int')
 
     # remove not d20 rolls
@@ -27,7 +27,7 @@ def use_this_df():
     df = remove_rows(df, 'Natural Value', remove_list)
 
     # filter down df
-    df_filtered = df.filter(['Character', 'Type of Roll', 'Total Value', 'Natural Value', 'Notes', 'Level'])
+    df_filtered = df.filter(['Character', 'Type of Roll', 'Total Value', 'Natural Value', 'Level'])
 
     # cast value columns as int
     df_filtered['Total Value'] = df_filtered['Total Value'].astype('int32')

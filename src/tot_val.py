@@ -27,6 +27,6 @@ print_info(df, col)
 
 # plot histogram
 x = df[col].astype('int32')
-sns.distplot(x, bins=20)
+sns.distplot(x, bins=20).set_title('Total Value Histogram')
 plt.show()
 

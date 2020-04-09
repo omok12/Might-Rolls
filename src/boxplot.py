@@ -17,4 +17,6 @@ pos = range(len(nobs))
 for tick,label in zip(pos, ax.get_xticklabels()):
     ax.text(pos[tick], means[tick] + 1, s=nobs[tick], horizontalalignment='center', size='x-small', color='w',
             weight='semibold')
+
+ax.set_title('Modifier by Level - Boxplot')
 plt.show()

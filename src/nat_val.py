@@ -24,5 +24,5 @@ df = remove_rows(df, col, remove_list)
 
 # plot histogram
 data = df['Natural Value'].astype('int32')
-sns.distplot(data,bins=np.arange(data.max()+2))
+sns.distplot(data,bins=np.arange(data.max()+2)).set_title('Natural Value Histogram')
 plt.show()
