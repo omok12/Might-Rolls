@@ -252,9 +252,7 @@ This yields: p-value = 0
 
 ![Mann-Whitney](img/Mann_Whitney_U_test_table.png)
 
-Table values are the p-values from the Mann-Whitney test i.e P(Y>X) + .5*P(Y=X)
-
-Rows are fixed Level tested against all other Levels
+Table values are the p-values from the Mann-Whitney test, i.e P(Y>X) + .5*P(Y=X)
 
 # Conclusion
 
