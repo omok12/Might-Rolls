@@ -110,66 +110,61 @@ After cleaning, there are 6591 rows, and 6 important columns;
 
 # Preliminary Plots
 <details>
-    <summary>Natural Value Histogram</summary>
+    <summary>Histogram Plot Function</summary>
     
     ```
-    from src.helper_functions import *
     import seaborn as sns
-    import matplotlib.pyplot as plt
     import numpy as np
     
-    dirpath = '/home/o/Downloads/Galv/capstone1/Mighty-Rolls/data/All Rolls - Wildemount/'
-    
-    # clean 'Natural Value' feature
-    df = html_to_df(dirpath).dropna(subset=['Episode'])
-    col = 'Natural Value'
-    
-    d20_filter_out_list = ['Other', 'Damage', 'Fragment', 'Percentage', 'Unknown', 'Hit Dice']
-    df = remove_rows(df, 'Type of Roll', d20_filter_out_list)
-    
-    
-    remove_list = ['Unknown', 'Nat1', '-2', '24', '21', '0']
-    df = remove_rows(df, col, remove_list)
-    
-    # plot histogram
-    data = df['Natural Value'].astype('int32')
-    sns.distplot(data,bins=np.arange(data.max()+2)).set_title('Natural Value Histogram')
+    def dist_plot(df, col):
+        data = df[col]
+        sns.distplot(data, bins=np.arange(data.min(), data.max()+1)).set_title(f'{col} Histogram')'{col} Histogram')
+
+    ```
+</details>
+
+<details>
+<summary>Natural Value Histogram</summary>
+
+    ```
+    import matplotlib.pyplot as plt
+    df = use_this_df()
+    dist_plot(df, 'Natural Value')
     plt.show()
     ```
+
 </details>
 
 ![Natural Value Histogram](img/sns_nat_val_distplot.png)
 
 <details>
-    <summary>Total Value Histogram</summary>
-    
+<summary>Total Value Histogram</summary>
+
     ```
-    from src.helper_functions import *
     import matplotlib.pyplot as plt
-    import seaborn as sns
-    
-    
-    dirpath = '/home/o/Downloads/Galv/capstone1/Mighty-Rolls/data/All Rolls - Wildemount/'
-    
-    # clean Total Value feature
-    df = html_to_df(dirpath).dropna(subset=['Episode'])
-    col = 'Total Value'
-    
-    d20_filter_out_list = ['Other', 'Damage', 'Fragment', 'Percentage', 'Unknown', 'Hit Dice']
-    df = remove_rows(df, 'Type of Roll', d20_filter_out_list)
-    
-    remove_list = []
-    for i in range(21):
-        remove_list.append('Nat'+str(i))
-    remove_list.append('Unknown')
-    df = remove_rows(df, col, remove_list)
-    
-    # plot histogram
-    x = df[col].astype('int32')
-    sns.distplot(x, bins=20).set_title('Total Value Histogram')
+    df = use_this_df()
+    dist_plot(df, 'Total Value')
     plt.show()
     ```
-    
+
 </details>
 
 ![Total Value Histogram](img/sns_tot_val_distplot.png)
+
+
+
+# Focusing on Modifier
+
+<details>
+<summary>Modifier Histogram</summary>
+
+    ```
+    import matplotlib.pyplot as plt
+    df = use_this_df()
+    dist_plot(df, 'Modifier')
+    plt.show()
+    ```
+
+</details>
+
+![Modifier Histogram](img/modifier_distplot.png)
