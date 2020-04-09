@@ -1,7 +1,6 @@
 from src.use_this import use_this_df
 import seaborn as sns
 import matplotlib.pyplot as plt
-import numpy as np
 
 df = use_this_df()
 

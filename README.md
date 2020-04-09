@@ -168,3 +168,105 @@ After cleaning, there are 6591 rows, and 6 important columns;
 </details>
 
 ![Modifier Histogram](img/modifier_distplot.png)
+
+<details>
+<summary>Modifier by Level Boxplot</summary>
+
+    ```
+    from src.use_this import use_this_df
+    import seaborn as sns
+    import matplotlib.pyplot as plt
+    
+    df = use_this_df()
+    
+    sns.set_style('ticks')
+    sns.color_palette('dark')
+    ax = sns.boxplot(df['Level'], df['Modifier'])
+    
+    means = df.groupby('Level')['Modifier'].mean().values
+    nobs = df.groupby('Level')['Modifier'].agg(['count'])
+    nobs = ["n: " + str(i) for s in nobs.values for i in s]
+    
+    pos = range(len(nobs))
+    for tick,label in zip(pos, ax.get_xticklabels()):
+        ax.text(pos[tick], means[tick] + 1, s=nobs[tick], horizontalalignment='center', size='x-small', color='w',
+                weight='semibold')
+    
+    ax.set_title('Modifier by Level - Boxplot')
+    plt.show()
+    ```
+
+</details>
+
+![Modifier by Level - Boxplot](img/level_mod_boxplots.png)
+
+<details>
+<summary>FacetGrid Histograms Function</summary>
+
+    ```
+    def plot_distplots(df, col, col_wrap, plot_col):
+        g = sns.FacetGrid(df, col=col, col_wrap=col_wrap)
+        g.map(sns.distplot, plot_col)
+        plt.subplots_adjust(top=0.9)
+        g.fig.suptitle(f'{plot_col} by {col}')
+    ```
+
+</details>
+
+<details>
+<summary>Modifier by Level Histograms</summary>
+
+    ```
+    from src.use_this import use_this_df
+    import seaborn as sns
+    import matplotlib.pyplot as plt
+    
+    df = use_this_df()
+    sns.set_style('ticks')
+    plot_distplots(df, 'Level', 5, 'Modifier')
+    plt.show()
+    ```
+
+</details>
+
+![Modifier by Level](img/level_mod_distplots.png)
+
+# Hypothesis Test - Mann-Whitney U Test
+
+Given the previous plots, and my understanding of the game rules, the following is set as the null hypothesis:
+```
+Modifiers at a lower level are equally likely to be higher than Modifiers at a higher level as the other way around
+```
+Using the following code to test the hypothesis as follows:
+
+(Modifier at Level 11) < (Modifier at Level 2)
+
+```
+import scipy.stats as stats
+stats.mannwhitneyu(df[df['Level'] == 11]['Modifier'], df[df['Level'] == 2]['Modifier'], alternative='greater')
+```                 
+
+This yields: p-value = 0
+
+## Further Testing
+
+![Mann-Whitney](img/Mann-Whitney U test table.png)
+
+Table values are the p-values from the Mann-Whitney test i.e P(Y>X) + .5*P(Y=X)
+
+Rows are fixed Level tested against all other Levels
+
+# Conclusion
+
+From the p-values obtained from the Mann-Whitney tests, I believe that the value of the modifiers does, in fact, increase as level increases. 
+However, the accuracy of these tests debatable because of two reasons. One reason is I assumed modifier and level were independent, and the sample size of modifiers at each level was varied.
+More work would have to be done to test independence, and test similar sized samples.
+
+#Next Steps
+
+There many more facets of the game that can be explored to determine overall balancing of game features. Some of these include:
+      
+        Specific class features
+        Damage rolls (non d20 rolls)
+        Advantage/Disadvantage effects on Total Value
+In a general sense, creating a normalized scale to study the impact of individual features would provide an intuitive way to quantify, and balance, design choices.
