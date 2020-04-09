@@ -15,7 +15,7 @@ def mann_whitney_test_lvl(level=2):
 
     p_vals = []
     for i in range(0, 10):
-        res = stats.mannwhitneyu(samples[level-2], samples[i], alternative='greater').pvalue.round(3)
+        res = stats.mannwhitneyu(samples[i], samples[level-2], alternative='greater').pvalue.round(3)
         p_vals.append(res)
     return p_vals
 
