@@ -44,7 +44,7 @@ After cleaning, there are 6591 rows, and 6 important columns;
         df = df[~df[col].isin(lst)]
         return df[df[col].notnull()]
     
-    def use_this_df(dirpath):
+    def use_this_df():
         # create df of level in each episode
         ep_formatted = pd.read_csv('./data/level_by_ep.csv', names=['episode_int','Episode','Level'])
         df_ep_level = ep_formatted.filter(['episode_int', 'Level']).set_index('episode_int')
