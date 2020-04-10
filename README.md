@@ -14,12 +14,12 @@ The outcome of a task is decided by these steps:
 3. Compare the total to a target number
 
 This presentation will focus on the modifier value added to d20 rolls. The modifier value is a combination of values 
-from various sources such as ability scores, proficiency bonus, and/or spell effects.
+ such as ability scores, proficiency bonus, and/or spell effects.
 
 
 # Importing and Cleaning the Data
 
-Dataset located [here](https://docs.google.com/spreadsheets/d/1FFuw5c6Hk1NUlHv2Wvr5b9AElLA51KtRl9ZruPU8r9k/edit#gid=0), as a Google Sheets spreadsheet, maintained by the [CritRoleStats](https://www.critrolestats.com/), includes 11107 rows and 11 columns.
+Dataset located [here](https://docs.google.com/spreadsheets/d/1FFuw5c6Hk1NUlHv2Wvr5b9AElLA51KtRl9ZruPU8r9k/edit#gid=0), as a Google Sheets spreadsheet, maintained by [CritRoleStats](https://www.critrolestats.com/), includes 11107 rows and 11 columns.
 After cleaning, there are 6591 rows, and 6 important columns;
 ‘Character’, ‘Type of Roll’, ‘Total Value’, ‘Natural Value’, ‘Level’, and ‘Modifier = (Total Value - Natural Value)’
 
@@ -238,9 +238,9 @@ plot_distplots(use_this_df(), 'Level', 5, 'Modifier')
 
 # Hypothesis Test - Mann-Whitney U Test
 
-Given the previous plots, and my understanding of the game rules, I begin by testing a simple hypothesis:
+Given the previous plots, and my understanding of the game rules, I begin by testing the following hypothesis:
 ```
-Modifiers at a lower level are equally likely to be higher than Modifiers at a higher level as the other way around
+Modifiers at a lower level are equally likely to be larger than Modifiers at a higher level as the other way around
 ```
 Under the null hypothesis, i.e P(Modifier at Level 2 > Modifier at level 11) = .5, 
 the following is use to find the p-value.
