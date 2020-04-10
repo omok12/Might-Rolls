@@ -170,27 +170,34 @@ dist_plot(use_this_df(), 'Modifier')
 ![Modifier Histogram](img/modifier_distplot.png)
 
 <details>
+<summary>Modifier by Level Boxplot Function</summary>
+
+```python
+def plot_boxplot(df,x_col,y_col):
+    sns.set_style('ticks')
+    sns.color_palette('dark')
+    ax = sns.boxplot(df[x_col], df[y_col])
+
+    medians = df.groupby(x_col)[y_col].median().values
+    nobs = df.groupby(x_col)[y_col].agg(['count'])
+    nobs = ["n: " + str(i) for s in nobs.values for i in s]
+
+    pos = range(len(nobs))
+    for tick,label in zip(pos, ax.get_xticklabels()):
+        ax.text(pos[tick], medians[tick] + 1, s=nobs[tick], horizontalalignment='center', size='x-small', color='w',
+                weight='semibold')
+
+    ax.set_title(f'{y_col} by {x_col} - Boxplot')
+```
+
+</details>
+
+<details>
 <summary>Modifier by Level Boxplot</summary>
 
-   ```python
-df = use_this_df()
-
-sns.set_style('ticks')
-sns.color_palette('dark')
-ax = sns.boxplot(df['Level'], df['Modifier'])
-
-medians = df.groupby('Level')['Modifier'].median().values
-nobs = df.groupby('Level')['Modifier'].agg(['count'])
-nobs = ["n: " + str(i) for s in nobs.values for i in s]
-
-pos = range(len(nobs))
-for tick,label in zip(pos, ax.get_xticklabels()):
-    ax.text(pos[tick], medians[tick] + 1, s=nobs[tick], horizontalalignment='center', size='x-small', color='w',
-            weight='semibold')
-
-ax.set_title('Modifier by Level - Boxplot')
-   ```
-
+```python
+plot_boxplot(use_this_df(), 'Level','Modifier')
+```
 </details>
 
 ![Modifier by Level - Boxplot](img/level_mod_boxplot.png)
