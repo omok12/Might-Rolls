@@ -122,6 +122,8 @@ def use_this_df():
   </details>
 
 # Preliminary Plots
+
+The Natural Value is simply a die roll, so as expected, the distribution appears uniform.
 <details>
     <summary>Histogram Plot Function</summary>
     
@@ -143,6 +145,9 @@ dist_plot(use_this_df(), 'Natural Value')
 
 ![Natural Value Histogram](img/sns_nat_val_distplot.png)
 
+Looking at the distribution of the Total Values, which is the Natural Role + Modifier, it seems possible that the 
+distribution is normal.
+
 <details>
 <summary>Total Value Histogram</summary>
 
@@ -157,6 +162,8 @@ dist_plot(use_this_df(), 'Total Value')
 
 
 # Focusing on Modifier
+
+From the above, we can see the distributions of Natural Value, and Total Value, but what about the distribution of the Modifier?
 
 <details>
 <summary>Modifier Histogram</summary>
@@ -229,7 +236,7 @@ plot_distplots(use_this_df(), 'Level', 5, 'Modifier')
 
 # Hypothesis Test - Mann-Whitney U Test
 
-Given the previous plots, and my understanding of the game rules, the following is set as the null hypothesis:
+Given the previous plots, and my understanding of the game rules, I begin by testing a simple hypothesis:
 ```
 Modifiers at a lower level are equally likely to be higher than Modifiers at a higher level as the other way around
 ```
@@ -252,9 +259,10 @@ Table values are the p-values from the Mann-Whitney test, i.e P(Y>X) + .5*P(Y=X)
 # Conclusion
 
 From the p-values obtained from the Mann-Whitney tests, I believe that the value of the modifiers does, in fact, increase as level increases. 
-However, I am concerned about the accuracy of the tests for two reason. One reason is I assumed modifier and level 
-were independent, and the second reason is that sample size of modifiers at each level was varied. More work would have
- to be done to determine independence, and the effects of sample size.
+However, I am concerned about the accuracy of the tests for two reason. The first reason is I assumed modifier and level 
+were independent, and the second reason is that sample size of modifiers at each level was varied. 
+
+More work would have to be done to determine independence, and the effects of sample size.
 
 # Why Modifier Matters, and Next Steps
 
