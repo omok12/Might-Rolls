@@ -4,16 +4,17 @@ A dive into a Dungeons and Dragons 5e campaign
 
 # Introduction
 
-Dungeons and Dragons 5th edition (DnD 5e) is a tabletop role-playing game published by Wizards of the Coast
+Dungeons and Dragons 5th edition (DnD 5e) is a tabletop role-playing game published by Wizards of the Coast.
 The core rules of the game are formed by three kind of d20(20-sided die) rolls; ability checks, attack rolls,
 and saving throws.
 
-Tasks in the game follow three steps:
+The outcome of a task is decided by these steps:
 1. Roll the die and add a modifier
 2. Apply circumstantial bonuses and penalties
 3. Compare the total to a target number
 
-This presentation will focus on the modifier value added a die roll.
+This presentation will focus on the modifier value added a die roll. The modifier value is a combination of values 
+from various sources such as ability scores, proficiency bonus, and/or spell effects.
 
 
 # Importing and Cleaning the Data
@@ -237,9 +238,8 @@ Given the previous plots, and my understanding of the game rules, the following 
 ```
 Modifiers at a lower level are equally likely to be higher than Modifiers at a higher level as the other way around
 ```
-Using the following code to test the hypothesis as follows:
-
-(Modifier at Level 11) < (Modifier at Level 2)
+Under the null hypothesis, i.e P(Modifier at Level 2 > Modifier at level 11) = .5, 
+the following is use to find the p-value.
 
 ```
 import scipy.stats as stats
@@ -257,8 +257,9 @@ Table values are the p-values from the Mann-Whitney test, i.e P(Y>X) + .5*P(Y=X)
 # Conclusion
 
 From the p-values obtained from the Mann-Whitney tests, I believe that the value of the modifiers does, in fact, increase as level increases. 
-However, the accuracy of these tests debatable because of two reasons. One reason is I assumed modifier and level were independent, and the sample size of modifiers at each level was varied.
-More work would have to be done to test independence, and test similar sized samples.
+However, I am concerned about the accuracy of the tests for two reason. One reason is I assumed modifier and level 
+were independent, and the second reason is that sample size of modifiers at each level was varied. More work 
+would have to be done to test independent, similarly sized samples.
 
 #Next Steps
 
