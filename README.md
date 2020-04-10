@@ -193,7 +193,7 @@ ax.set_title('Modifier by Level - Boxplot')
 
 </details>
 
-![Modifier by Level - Boxplot](img/level_mod_boxplots.png)
+![Modifier by Level - Boxplot](img/level_mod_boxplot.png)
 
 <details>
 <summary>FacetGrid Histograms Function</summary>
