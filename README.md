@@ -13,7 +13,7 @@ The outcome of a task is decided by these steps:
 2. Apply circumstantial bonuses and penalties
 3. Compare the total to a target number
 
-This presentation will focus on the modifier value added a die roll. The modifier value is a combination of values 
+This presentation will focus on the modifier value added to d20 rolls. The modifier value is a combination of values 
 from various sources such as ability scores, proficiency bonus, and/or spell effects.
 
 
