@@ -176,6 +176,8 @@ dist_plot(use_this_df(), 'Modifier')
 
 ![Modifier Histogram](img/modifier_distplot.png)
 
+Digging deeper, and looking at Modifier at each Level.
+
 <details>
 <summary>Modifier by Level Boxplot Function</summary>
 
@@ -252,9 +254,9 @@ This yields: p-value = 0
 
 ## Further Testing
 
-![Mann-Whitney](img/Mann_Whitney_U_test_table.png)
-
 Table values are the p-values from the Mann-Whitney test, i.e P(Y>X) + .5*P(Y=X)
+
+![Mann-Whitney](img/Mann_Whitney_U_test_table.png)
 
 # Conclusion
 
@@ -267,9 +269,9 @@ More work would have to be done to determine independence, and the effects of sa
 # Why Modifier Matters, and Next Steps
 
 As players level up, it is important to create, and maintain, a challenging and engaging environment. Therefore, 
-when designing a game, it is important to set the target number for each roll at an appropriate value. 
+when designing a game, it is important to set the target number for each task at an appropriate value. 
 
-The modifier value is one of many facets that must be considered to balance the game. Others include:
+The modifier value is one of many facets that must be considered to balance a DnD game. Others include:
       
         Specific class features
         Damage rolls (non d20 rolls)
