@@ -260,7 +260,7 @@ Table values are the p-values from the Mann-Whitney test, i.e P(Y>X) + .5*P(Y=X)
 
 # Conclusion
 
-From the p-values obtained from the Mann-Whitney tests, I believe that the value of the modifiers does, in fact, increase as level increases. 
+From the p-values obtained from the Mann-Whitney tests, I reject the null hypothesis, the value of the modifiers do increase as level increases. 
 However, I am concerned about the accuracy of the tests for two reason. The first reason is I assumed modifier and level 
 were independent, and the second reason is that sample size of modifiers at each level was varied. 
 
