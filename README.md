@@ -249,11 +249,15 @@ However, I am concerned about the accuracy of the tests for two reason. One reas
 were independent, and the second reason is that sample size of modifiers at each level was varied. More work would have
  to be done to determine independence, and the effects of sample size.
 
-#Next Steps
+# Why Modifier Matters, and Next Steps
 
-There many more facets of the game that can be explored to determine overall balancing of game features. Some of these include:
+As players level up, it is important to create, and maintain, a challenging and engaging environment. Therefore, 
+when designing a game, it is important to set the target number for each roll at an appropriate value. 
+
+The modifier value is one of many facets that must be considered to balance the game. Others include:
       
         Specific class features
         Damage rolls (non d20 rolls)
         Advantage/Disadvantage effects on Total Value
+        
 In a general sense, creating a normalized scale to study the impact of individual features would provide an intuitive way to quantify, and balance, design choices.
